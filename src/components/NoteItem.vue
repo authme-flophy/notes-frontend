@@ -44,4 +44,10 @@
 
   }
 
+  .note-buttons {
+    margin-top: 1rem;
+    padding-top: .5rem;
+    border-top: 1px solid #34495E;
+  }
+
 </style>

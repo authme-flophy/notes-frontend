@@ -1,6 +1,7 @@
 <script setup>
  
   import { ref, watch, onMounted } from 'vue';
+  import axios from 'axios';
   import NoteItem from '../components/NoteItem.vue';
   import NotesCreate from '../components/NotesCreate.vue';
 
@@ -22,6 +23,16 @@
 
   onMounted(() => {
     fetchNoteList()
+    axios
+      .get('http://localhost:8000/api/notes/')
+      .then((response) => {
+        noteList.value = response.data
+      })
+      .catch((err) => {
+        console.error(err)
+      })
+
+
   })
 
   const setNoteListLocalStorage = () => {
@@ -29,6 +40,12 @@
   }
 
   const createNote = (note) => {
+    axios
+      .post('http://localhost:8000/api/notes/', {
+        title: note.value.title,
+        content: note.value.content,
+      })
+      .then(response => console.log(response.status))
     noteList.value.push({
       title: note.value.title,
       content: note.value.content

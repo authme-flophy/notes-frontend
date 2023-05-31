@@ -19,7 +19,8 @@
   const createNote = () => {
     if (noteState.value.content !== "") {
       emit('create-note', noteState)
-
+      noteState.value.title = ""
+      noteState.value.content = ""
     } else {
       alert("Content cannot be blank")
     }

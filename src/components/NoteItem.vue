@@ -3,7 +3,7 @@
     <h1>{{ note.title }}</h1>
     <p>{{ note.content }}</p>
     <div class="note-buttons">
-      <button><Icon icon="solar:pen-outline" color="#41b883" width="20" /></button>
+      <Icon icon="solar:pen-outline" color="#41b883" width="20" class="edit-button"/>
     </div>
   </li>
 </template>
@@ -33,4 +33,15 @@
     }
 
   }
+
+  .edit-button {
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+
+    &:hover {
+      transform: rotateY(180deg);
+    }
+
+  }
+
 </style>

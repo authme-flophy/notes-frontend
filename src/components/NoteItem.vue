@@ -2,10 +2,15 @@
   <li>
     <h1>{{ note.title }}</h1>
     <p>{{ note.content }}</p>
+    <div class="note-buttons">
+      <button><Icon icon="solar:pen-outline" color="#41b883" width="20" /></button>
+    </div>
   </li>
 </template>
 
 <script setup>
+  import { Icon } from '@iconify/vue';
+
   const props = defineProps({
     note: {
       type: Object,
